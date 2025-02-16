@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from "url";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
@@ -30,8 +31,9 @@ app.get('/',async(req,res)=>{
     };
 });
 
-
-
+// Anothers Routes -----> 
+// USer Route ---> 
+app.use('/api/v1',userRouter)
 
 // 404 route or false route handle --->
 app.use((req,res,next)=>{

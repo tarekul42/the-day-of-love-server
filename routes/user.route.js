@@ -3,7 +3,7 @@ import { getUserProfile, socialLogin, SSOlogIn, userPassUp, userRegistration } f
 import authCheck from "../config/authCheck.js";
 import { RateLimiterMemory } from "rate-limiter-flexible";
 
-export const router = Router();
+const router = Router();
 
 // Configure rate limiter (e.g., 5 requests per 15 minutes per IP)
 const rateLimiter = new RateLimiterMemory({
@@ -34,3 +34,4 @@ router.get('/user/profile',authCheck, userPassUp);
 router.post('/user/social-login',socialLogin);
 
 
+export default router;
