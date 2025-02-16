@@ -4,20 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "dev":"nodemon index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongodb": "^6.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
     "nodemon": "^3.1.9",
-    "openai": "^4.85.1"
+    "rate-limiter-flexible": "^5.0.5"
   }
 }
