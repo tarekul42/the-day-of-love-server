@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from "url";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
@@ -21,7 +22,7 @@ const __dirname = path.dirname(__filename);
 // home Route--->
 app.get('/',async(req,res)=>{
     try {
-        return res.sendFile(path.join(__dirname, 'view', 'index.html'))
+        return res.status(200).sendFile(path.join(__dirname, 'view', 'index.html'));
     } catch (error) {
         return res.status(500).json({
             success:false,
@@ -30,8 +31,9 @@ app.get('/',async(req,res)=>{
     };
 });
 
-
-
+// Anothers Routes -----> 
+// USer Route ---> 
+app.use('/api/v1',userRouter)
 
 // 404 route or false route handle --->
 app.use((req,res,next)=>{

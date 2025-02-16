@@ -62,7 +62,7 @@ export const socialLogin =async(req,res)=>{
                 return res.status(201).json({
                     success:true,
                     message:`Successfully Login ${newUser?.name}`,
-                    token
+                    token:`Bearer ${token}`
                 });
             }else{
                 return res.status(400).json({success:false,message:'Authentication Erorr: Email already predefine'});
@@ -121,7 +121,7 @@ export const SSOlogIn =async(req,res)=>{
                 return res.status(201).json({
                     success:true,
                     message:`Successfully Login ${newUser?.name}`,
-                    token
+                    token:`Bearer ${token}`
                 });
             } else {
                 return res.status(400).json({
