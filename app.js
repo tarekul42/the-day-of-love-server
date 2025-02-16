@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 // home Route--->
 app.get('/',async(req,res)=>{
     try {
-        return res.sendFile(path.join(__dirname, 'view', 'index.html'))
+        return res.status(200).sendFile(path.join(__dirname, 'view', 'index.html'));
     } catch (error) {
         return res.status(500).json({
             success:false,
