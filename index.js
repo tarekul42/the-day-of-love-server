@@ -1,18 +1,11 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
-const app = express();
-const port = process.env.PORT || 5000;
+import app from "./app.js";
+import { CONNECT_DB } from "./connection/DB_CONNECT.js";
 
-// middleware
-app.use(express.json());
-app.use(cors());
+const port = process.env.PORT || 3443;
+const DB_URI = process.env.MDB_URI;
 
-app.get("/", (req, res) => {
-    res.send("The day of Love is ongoing");
-})
 
-app.listen(port, ()=>{
-    console.log(`The day of generating love letter is running on port: ${port}`)
+app.listen(port,async()=>{
+   await CONNECT_DB(DB_URI);
+    console.log(`Server is running. Server link ---> http://localhost:${port}`);
 });
-console.log(`object`);
