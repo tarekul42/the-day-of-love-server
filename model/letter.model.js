@@ -10,14 +10,12 @@ const letterSchema = new mongoose.Schema({
   },
   loverType: {
     type: String,
-    enum: ["romantic,poetic,funny"],
   },
   letter: {
     type: Object,
   },
   letterType: {
     type: String,
-    enum: ["short", "medium", "long"],
   },
   language: {
     type: String,

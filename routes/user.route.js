@@ -24,7 +24,7 @@ const rateLimiterMiddleware = async (req, res, next) => {
 };
 // for all--> 
 router.post('/user/regitration',rateLimiterMiddleware,userRegistration);
-router.post('/user/regitration',rateLimiterMiddleware,SSOlogIn);
+router.post('/user/ssologIn',rateLimiterMiddleware,SSOlogIn);
 
 // AIthentic user ---> 
 router.get('/user/profile',authCheck, getUserProfile);

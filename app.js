@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import userRoute from "./routes/user.route.js";
 import letterRoute from "./routes/letter.route.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
