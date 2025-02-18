@@ -16,7 +16,7 @@ const rateLimiterMiddleware = async (req, res, next) => {
         await rateLimiter.consume(req.ip); // Deduct a point for each request
         next(); // Proceed if within limits
     } catch {
-        res.status(429).json({
+       return res.status(429).json({
             success: false,
             message: "Too many requests. Please try again later.",
         });
