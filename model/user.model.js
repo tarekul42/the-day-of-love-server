@@ -1,45 +1,43 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:[true, 'Name Is required']
+    name: {
+        type: String,
+        required: [true, 'Name is required'],
     },
-    email:{
-        type:String,
-        required:[true,'mail is require'],
-        validate:{
-            validator:(v)=>{
-                return /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/.test(v)
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        validate: {
+            validator: (v) => {
+                return /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/.test(v);
             },
-            message:(prp)=>`${prp.value} is not a valid mail`
+            message: (props) => `${props.value} is not a valid email`,
         },
-        unique:[true,'Mail must have been unique']
+        unique: [true, 'Email must be unique'],
     },
-    password :{
-        type:String,
-        required:[true,'password is required']
+    password: {
+        type: String,
+        required: [true, 'Password is required'],
     },
-    phone :{
-        type:Number,
-        default:1010101010101
+    phone: {
+        type: Number,
+        default: 1010101010101,
     },
-    role:{
-        type:String,
-        default:'Resume designer'
+    role: {
+        type: String,
+        default: 'Resume designer',
     },
-    isSocialLogIn:{
-        type:Boolean,
-        deafult:false
+    isSocialLogIn: {
+        type: Boolean,
+        default: false, 
     },
-    profile:{
-        type:String,
-        deafult:null
+    profile: {
+        type: String,
+        default: 'https://i.ibb.co/vZG28db/user.webp',
     },
-},{timestamps:true});
+}, { timestamps: true });
 
+const User = mongoose.model('User', userSchema);
 
- const User = mongoose.model('users',userSchema);
-
-
- export default User;
+export default User;

@@ -16,7 +16,7 @@ const rateLimiterMiddleware = async (req, res, next) => {
         await rateLimiter.consume(req.ip); // Deduct a point for each request
         next(); // Proceed if within limits
     } catch {
-        res.status(429).json({
+       return res.status(429).json({
             success: false,
             message: "Too many requests. Please try again later.",
         });
@@ -24,7 +24,7 @@ const rateLimiterMiddleware = async (req, res, next) => {
 };
 // for all--> 
 router.post('/user/regitration',rateLimiterMiddleware,userRegistration);
-router.post('/user/regitration',rateLimiterMiddleware,SSOlogIn);
+router.post('/user/ssologIn',rateLimiterMiddleware,SSOlogIn);
 
 // AIthentic user ---> 
 router.get('/user/profile',authCheck, getUserProfile);
